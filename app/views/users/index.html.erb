@@ -4,3 +4,5 @@
   <li><%= user.fullname %> || <<%= user.mobile_no %></li>
 <% end %>
 </ul>
+
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
