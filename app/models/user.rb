@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :created_visits, class_name: 'Visit', foreign_key: 'pat_id', dependent: :destroy
+  has_many :appointments, dependent: :destroy
+  has_many :seen_visits, through: :appointments, source: :visit
+
   # Search user by mobile number(not email)
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
