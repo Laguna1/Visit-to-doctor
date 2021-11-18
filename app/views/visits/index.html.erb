@@ -2,9 +2,11 @@
 
 <div>
 <% @visits.each do |visit| %>
+   <p><%= show_patient(visit) %></p>
    <p>Date: <%= visit.date %></p>
    <p>Notes: <%= visit.notes %></p>
-   <p><%= show_patient(visit) %></p>
+   <button>Accept patient</button><br>
+   <button>To give recommendations</button>
    <p>____________________</p>
-</div>
 <% end %>
+</div>
