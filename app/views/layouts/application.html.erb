@@ -29,14 +29,14 @@
       <div id="navbarExample" class="navbar-menu">
         <div class="navbar-end">
           <div class="field is-grouped">
-            <p class='control'>
-                <%= link_to 'Visits all', visits_path, class: "button is-info is-inverted" %>
-              </p>
-            <p class='control'>
-                <%= link_to 'New Visit', new_visit_path, class: "button is-info is-inverted" %>
-              </p>
 
-              <% if user_signed_in? %>
+            <% if user_signed_in? %>
+                <p class='control'>
+                  <%= link_to 'Visits all', visits_path, class: "button is-info is-inverted" %>
+                </p>
+                <p class='control'>
+                  <%= link_to 'New Visit', new_visit_path, class: "button is-info is-inverted" %>
+                </p>
                 <p class="control">
                   <%= link_to current_user.fullname, edit_user_registration_path, class: "button is-info" %>
                 </p>
