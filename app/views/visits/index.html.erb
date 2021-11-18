@@ -1,1 +1,10 @@
 <h1>Visits#index</h1>
+
+<div>
+<% @visits.each do |visit| %>
+   <p>Date: <%= visit.date %></p>
+   <p>Notes: <%= visit.notes %></p>
+   <p><%= show_patient(visit) %></p>
+   <p>____________________</p>
+</div>
+<% end %>
