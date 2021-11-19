@@ -1,8 +1,33 @@
 <h1>User Profile</h1>
-<p>My info</p>
+<h3>General Info</h3>
+<p>
+  <strong>Fullname:</strong>
+  <%= @user.fullname %>
+</p>
+
+<p>
+  <strong>Mobile number:</strong>
+  <%= @user.mobile_no %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p><% if @user.category != nil %>
+     <strong>Speciality:</strong>
+       <%= user.category.speciality %>
+    <% else %>
+        <%= '' %>
+    <% end %>
+</p>
+
 <button>Find Doctor</button>
 <button>Create Visit</button>
 <button>Check recommendations</button>
 <br>
 <br>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', root_path %>

@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 
   def new
     @user = User.new
@@ -13,12 +15,22 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    redirect_to users_path if @user.save
+    if @user.save
+      redirect_to users_path
+    else
+      render :new
+    end
+  end
+
+  # DELETE /users/1
+  def destroy
+    @user.destroy
+    redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:fullname, :mobile_no, :email, :password, :password_confirmation)
+    params.require(:user).permit(:fullname, :mobile_no, :email, :password, :password_confirmation, :category_id)
   end
 end

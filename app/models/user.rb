@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  belongs_to :category, optional: true
+
   has_many :created_visits, class_name: 'Visit', foreign_key: 'pat_id', dependent: :destroy
   has_many :appointments, dependent: :destroy
   has_many :seen_visits, through: :appointments, source: :visit
