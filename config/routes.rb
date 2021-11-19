@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :categories
   devise_for :users
   resources :users
   resources :visits
+  resources :categories
+  
   root 'users#index'
 end
