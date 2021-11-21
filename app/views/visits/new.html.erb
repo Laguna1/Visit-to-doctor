@@ -11,6 +11,22 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= form.label :choose_doctor_category %>
+    <%= collection_select(
+      :user, :category_id, Category.all, :id, :speciality, { prompt: true }
+    ) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :choose_doctor_in_the_category? %>
+    <%= collection_select(
+      :user, :user_id, User.all, :id, :fullname, { prompt: true }
+    ) %>
+  </div>
+
+
   <div class="field">
     <%= form.label :date %>
     <%= form.datetime_select :date %>
@@ -24,18 +40,6 @@
   <div class="field">
     <%= form.label :notes %>
     <%= form.text_field :notes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :choose_doctor_category %>
-    <%= collection_select(
-      :user, :category_id, Category.all, :id, :speciality, { prompt: true }
-    ) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :choose_doctor? %>
-    <%= form.text_field :doctor %>
   </div>
 
   <div class="actions">

@@ -14,7 +14,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= link_to category_path(category) do %>
-               <%= category.speciality %>
+              <%= category.speciality %>
             <% end %>
         </td>
         <td><%= link_to 'Show', category %></td>
