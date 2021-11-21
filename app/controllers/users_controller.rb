@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
@@ -53,6 +53,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:fullname, :mobile_no, :email, :password, :password_confirmation, :category_id)
+    params.require(:user).permit(:fullname, :mobile_no, :email, :password, :password_confirmation, :category_id, :role_id)
   end
 end
