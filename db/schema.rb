@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_173642) do
+ActiveRecord::Schema.define(version: 2021_11_25_153417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "appointments", force: :cascade do |t|
-    t.text "recipe"
-    t.bigint "visit_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_appointments_on_user_id"
-    t.index ["visit_id"], name: "index_appointments_on_visit_id"
-  end
 
   create_table "categories", force: :cascade do |t|
     t.string "speciality"
@@ -65,8 +55,6 @@ ActiveRecord::Schema.define(version: 2021_11_21_173642) do
     t.index ["pat_id"], name: "index_visits_on_pat_id"
   end
 
-  add_foreign_key "appointments", "users"
-  add_foreign_key "appointments", "visits"
   add_foreign_key "users", "categories"
   add_foreign_key "users", "roles"
   add_foreign_key "visits", "users", column: "pat_id"
