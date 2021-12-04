@@ -7,9 +7,8 @@ class User < ApplicationRecord
   belongs_to :role, optional: true
   belongs_to :category, optional: true
 
-  has_many :created_visits, class_name: 'Visit', foreign_key: 'pat_id', dependent: :destroy
-  # has_many :appointments, dependent: :destroy
-  has_many :seen_visits, class_name: 'Visit', foreign_key: 'doc_id'
+  has_many :created_visits, class_name: 'Visit'
+  has_many :booked_visits, class_name: 'Visit'
 
   before_save :assign_role
 

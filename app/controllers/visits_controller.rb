@@ -15,6 +15,7 @@ class VisitsController < ApplicationController
 
   def create
     @visit = current_user.created_visits.build(visit_params)
+
     if @visit.save
       redirect_to @visit
     else
@@ -25,6 +26,6 @@ class VisitsController < ApplicationController
   private
 
   def visit_params
-    params.require(:visit).permit(:date, :notes, :pat_id, :doc_id)
+    params.require(:visit).permit(:date, :notes)
   end
 end

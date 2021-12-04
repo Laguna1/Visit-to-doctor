@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_170405) do
+ActiveRecord::Schema.define(version: 2021_12_04_213248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,14 +51,14 @@ ActiveRecord::Schema.define(version: 2021_11_25_170405) do
     t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "pat_id"
-    t.bigint "doc_id"
-    t.index ["doc_id"], name: "index_visits_on_doc_id"
-    t.index ["pat_id"], name: "index_visits_on_pat_id"
+    t.bigint "patient_id"
+    t.bigint "doctor_id"
+    t.index ["doctor_id"], name: "index_visits_on_doctor_id"
+    t.index ["patient_id"], name: "index_visits_on_patient_id"
   end
 
   add_foreign_key "users", "categories"
   add_foreign_key "users", "roles"
-  add_foreign_key "visits", "users", column: "doc_id"
-  add_foreign_key "visits", "users", column: "pat_id"
+  add_foreign_key "visits", "users", column: "doctor_id"
+  add_foreign_key "visits", "users", column: "patient_id"
 end

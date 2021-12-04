@@ -1,15 +1,12 @@
 <h1>Visits#index</h1>
 
 <div>
-
-   <% @visits.each do |visit| %>
-      <% if current_user.id == visit.pat_id || visit.doc_id %>
-         <p><%= show_patient(visit) %></p>
-         <p>Date: <%= visit.date %></p>
-         <p>Notes: <%= visit.notes %></p>
-         <button>Accept patient</button><br>
-         <button>To give recommendations</button>
-         <p>____________________</p>
-      <% end %>
-   <% end %>
+<% @visits.each do |visit| %>
+   <p><%= show_patient(visit) %></p>
+   <p>Date: <%= visit.date %></p>
+   <p>Notes: <%= visit.notes %></p>
+   <button>Accept patient</button><br>
+   <button>To give recommendations</button>
+   <p>____________________</p>
+<% end %>
 </div>
